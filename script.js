@@ -6,11 +6,6 @@ const output = document.querySelector('.output');
 addGrid(13);
 if (range.value == 13) output.textContent = `13x13`;
 
-// function to display grid info to DOM
-function displayGrid(rangeEle) {
-   if (+rangeEle.value === +range.value) output.textContent = `${rangeEle.value}x${rangeEle.value}`;
-}
-
 // function to add and display grid to the DOM
 function addGrid(size) {
    container.style.cssText = `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr);`;
@@ -28,9 +23,18 @@ function removeGrid(params) {
 
 /* ---------------------------------------LOGIC-------------------------------------- */
 // add event listerner to the slider grid size
+
 range.addEventListener('input', () => {
+   let numSizes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
    output.textContent = `${range.value}x${range.value}`;
-   if (range.value == 1) {
+   numSizes.forEach((size) => {
+      if (range.value == size) {
+         removeGrid();
+         addGrid(size);
+      }
+   });
+
+   /*  if (range.value == 1) {
       removeGrid();
       addGrid(1);
    }
@@ -93,7 +97,7 @@ range.addEventListener('input', () => {
    if (+range.value == 13) {
       removeGrid();
       addGrid(13);
-   }
+   } */
 });
 
 //Array.from(container.children).forEach((child) => child.remove());
