@@ -1,6 +1,12 @@
 const container = document.querySelector('.container');
 const range = document.querySelector('.range');
 const output = document.querySelector('.output');
+const gridButtons = document.querySelectorAll('.gridBtn');
+const gridButtonOne = document.querySelector('#gridBtnOne');
+const gridButtonTwo = document.querySelector('#gridBtnTwo');
+const gridButtonThree = document.querySelector('#gridBtnThree');
+
+console.dir(gridButtonOne);
 
 // function to add and display grid to the DOM
 function addGrid(size) {
@@ -29,14 +35,47 @@ function maxGridSize(theSize) {
 }
 
 /* ---------------------------------------LOGIC-------------------------------------- */
-// Show default grid size to the DOM
-addGrid(15);
-if (range.value == 15) output.textContent = `15x15`;
-console.log(range.value);
+// Set default grid size to the DOM
+addGrid(16);
+
+// add eventlisterner to the button
+gridButtons.forEach((button) => {
+   button.addEventListener('click', (e) => {
+      if (button.id === 'gridBtnOne') {
+         removeGrid();
+         addGrid(20);
+         gridButtonOne.disabled = true;
+         gridButtonTwo.disabled = false;
+         gridButtonThree.disabled = false;
+      }
+      if (button.id === 'gridBtnTwo') {
+         removeGrid();
+         addGrid(40);
+         gridButtonTwo.disabled = true;
+         gridButtonOne.disabled = false;
+         gridButtonThree.disabled = false;
+      }
+      if (button.id === 'gridBtnThree') {
+         removeGrid();
+         addGrid(60);
+         gridButtonThree.disabled = true;
+         gridButtonOne.disabled = false;
+         gridButtonTwo.disabled = false;
+      }
+   });
+});
+
+/* buttonOne.addEventListener('click', (e) => {
+   removeGrid();
+   addGrid(20);
+}); */
+
+/* console.dir(buttonOne);
+console.log(buttonOne.className); */
 
 // add eventlisterner to the slider grid size
-range.addEventListener('input', () => {
-   let sizes = maxGridSize(60);
+/* range.addEventListener('input', () => {
+   let sizes = maxGridSize(20);
    output.textContent = `${range.value}x${range.value}`;
    sizes.forEach((size) => {
       if (range.value == size) {
@@ -44,7 +83,7 @@ range.addEventListener('input', () => {
          addGrid(size);
       }
    });
-});
+}); */
 
 // inside event listener
 /*  if (range.value == 1) {
