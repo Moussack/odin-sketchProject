@@ -13,22 +13,32 @@ function addGrid(size) {
 }
 
 // function to removes grid
-function removeGrid(params) {
+function removeGrid() {
    Array.from(container.children).forEach((child) => child.remove());
+}
+
+// func to determined the max grid size
+function maxGridSize(theSize) {
+   let sizesCollection = [];
+
+   for (let i = 1; i <= theSize; i++) {
+      sizesCollection.push(i);
+   }
+
+   return sizesCollection;
 }
 
 /* ---------------------------------------LOGIC-------------------------------------- */
 // Show default grid size to the DOM
-addGrid(13);
-if (range.value == 13) output.textContent = `13x13`;
+addGrid(15);
+if (range.value == 15) output.textContent = `15x15`;
+console.log(range.value);
 
 // add eventlisterner to the slider grid size
 range.addEventListener('input', () => {
-   let numSizes = [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-   ];
+   let sizes = maxGridSize(60);
    output.textContent = `${range.value}x${range.value}`;
-   numSizes.forEach((size) => {
+   sizes.forEach((size) => {
       if (range.value == size) {
          removeGrid();
          addGrid(size);
