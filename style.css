@@ -1,7 +1,7 @@
 .container {
    display: grid;
-   width: 500px;
-   height: 500px;
+   width: 550px;
+   height: 550px;
    /*  grid-template-columns: repeat(2, 1fr);
    grid-template-rows: repeat(2, 1fr); */
    border: 1px solid rgb(8, 8, 8);

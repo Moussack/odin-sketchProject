@@ -5,6 +5,7 @@ const gridButtons = document.querySelectorAll('.gridBtn');
 const gridButtonOne = document.querySelector('#gridBtnOne');
 const gridButtonTwo = document.querySelector('#gridBtnTwo');
 const gridButtonThree = document.querySelector('#gridBtnThree');
+const gridButtonFour = document.querySelector('#gridBtnFour');
 
 console.dir(gridButtonOne);
 
@@ -47,6 +48,7 @@ gridButtons.forEach((button) => {
          gridButtonOne.disabled = true;
          gridButtonTwo.disabled = false;
          gridButtonThree.disabled = false;
+         gridButtonFour.disabled = false;
       }
       if (button.id === 'gridBtnTwo') {
          removeGrid();
@@ -54,6 +56,7 @@ gridButtons.forEach((button) => {
          gridButtonTwo.disabled = true;
          gridButtonOne.disabled = false;
          gridButtonThree.disabled = false;
+         gridButtonFour.disabled = false;
       }
       if (button.id === 'gridBtnThree') {
          removeGrid();
@@ -61,6 +64,15 @@ gridButtons.forEach((button) => {
          gridButtonThree.disabled = true;
          gridButtonOne.disabled = false;
          gridButtonTwo.disabled = false;
+         gridButtonFour.disabled = false;
+      }
+      if (button.id === 'gridBtnFour') {
+         removeGrid();
+         addGrid(80);
+         gridButtonFour.disabled = true;
+         gridButtonOne.disabled = false;
+         gridButtonTwo.disabled = false;
+         gridButtonThree.disabled = false;
       }
    });
 });
