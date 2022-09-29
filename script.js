@@ -12,7 +12,11 @@ console.dir(gridLine);
 
 // function to add and display grid to the DOM
 function addGrid(size) {
-   container.style.cssText = `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr);`;
+   container.style.cssText = `
+      grid-template-columns: repeat(${size}, 1fr); 
+      grid-template-rows: repeat(${size}, 1fr);
+   `;
+
    for (let i = 0; i < size * size; i++) {
       container.insertAdjacentElement('beforeend', document.createElement('div'));
    }
