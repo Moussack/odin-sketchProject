@@ -18,7 +18,7 @@ function addGrid(size) {
    `;
 
    for (let i = 0; i < size * size; i++) {
-      container.insertAdjacentElement('beforeend', document.createElement('div'));
+      container.insertAdjacentElement('afterbegin', document.createElement('div'));
    }
    const containerDivs = document.querySelectorAll('.container div');
    containerDivs.forEach((div) => div.classList.add('square'));
