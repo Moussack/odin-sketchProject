@@ -1,3 +1,4 @@
+/* ---------------------------------------DOM QUERY-------------------------------------- */
 const container = document.querySelector('.container');
 const range = document.querySelector('.range');
 const output = document.querySelector('.output');
@@ -9,8 +10,10 @@ const gridButtonFour = document.querySelector('#gridBtnFour');
 const gridLine = document.querySelector('#gridLine');
 
 console.dir(gridLine);
+console.log(gridLine);
 
-// function to add and display grid to the DOM
+/* ---------------------------------------FUNCTIONS-------------------------------------- */
+// func to add and display grid to the DOM
 function addGrid(size) {
    // create the grid template
    container.style.cssText = `
@@ -25,10 +28,11 @@ function addGrid(size) {
    const containerDivs = document.querySelectorAll('.container div');
    containerDivs.forEach((div) => div.classList.add('square'));
 
+   // return the size
    return size;
 }
 
-// function to removes grid
+// func to remove grid
 function removeGrid() {
    Array.from(container.children).forEach((child) => child.remove());
 }
@@ -75,8 +79,8 @@ function disableButton(buttonId) {
    }
 }
 
-/* ---------------------------------------LOGIC-------------------------------------- */
-// Set default grid size to the DOM
+/* ---------------------------------------APP LOGIC-------------------------------------- */
+// Set & display default grid size to the DOM
 range.value = addGrid(16); // addGrid func returns the size and can be inputed to the range as it's value
 displayGridSize(range.value); // displaying the grid size based on the grid size
 
