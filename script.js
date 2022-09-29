@@ -7,7 +7,7 @@ const gridButtonTwo = document.querySelector('#gridBtnTwo');
 const gridButtonThree = document.querySelector('#gridBtnThree');
 const gridButtonFour = document.querySelector('#gridBtnFour');
 
-console.dir(gridButtonOne);
+console.dir(range.value);
 
 // function to add and display grid to the DOM
 function addGrid(size) {
@@ -17,6 +17,8 @@ function addGrid(size) {
    }
    const containerDivs = document.querySelectorAll('.container div');
    containerDivs.forEach((div) => div.classList.add('square'));
+
+   return size;
 }
 
 // function to removes grid
@@ -37,7 +39,8 @@ function maxGridSize(theSize) {
 
 /* ---------------------------------------LOGIC-------------------------------------- */
 // Set default grid size to the DOM
-addGrid(16);
+//addGrid(16);
+range.value = addGrid(16);
 
 // add eventlisterner to the button
 gridButtons.forEach((button) => {
@@ -49,6 +52,7 @@ gridButtons.forEach((button) => {
          gridButtonTwo.disabled = false;
          gridButtonThree.disabled = false;
          gridButtonFour.disabled = false;
+         range.value = 20;
       }
       if (button.id === 'gridBtnTwo') {
          removeGrid();
@@ -57,6 +61,7 @@ gridButtons.forEach((button) => {
          gridButtonOne.disabled = false;
          gridButtonThree.disabled = false;
          gridButtonFour.disabled = false;
+         range.value = 40;
       }
       if (button.id === 'gridBtnThree') {
          removeGrid();
@@ -65,6 +70,7 @@ gridButtons.forEach((button) => {
          gridButtonOne.disabled = false;
          gridButtonTwo.disabled = false;
          gridButtonFour.disabled = false;
+         range.value = 60;
       }
       if (button.id === 'gridBtnFour') {
          removeGrid();
@@ -73,6 +79,7 @@ gridButtons.forEach((button) => {
          gridButtonOne.disabled = false;
          gridButtonTwo.disabled = false;
          gridButtonThree.disabled = false;
+         range.value = 80;
       }
    });
 });
