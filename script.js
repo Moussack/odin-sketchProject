@@ -132,6 +132,19 @@ range.addEventListener('input', () => {
       gridButtonThree.disabled = false;
       gridButtonFour.disabled = false;
    }
+
+   if (range.value == 20) {
+      gridButtonOne.disabled = true;
+   }
+   if (range.value == 40) {
+      gridButtonTwo.disabled = true;
+   }
+   if (range.value == 60) {
+      gridButtonThree.disabled = true;
+   }
+   if (range.value == 80) {
+      gridButtonFour.disabled = true;
+   }
 });
 
 // add eventlistener to the LINE button to toggle the grid line
