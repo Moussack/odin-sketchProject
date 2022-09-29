@@ -47,9 +47,37 @@ function displayGridSize(value) {
    output.textContent = `${value}x${value}`;
 }
 
+// func to disable the button
+function disableButton(buttonId) {
+   if (buttonId === 'gridBtnOne') {
+      gridButtonOne.disabled = true;
+      gridButtonTwo.disabled = false;
+      gridButtonThree.disabled = false;
+      gridButtonFour.disabled = false;
+   }
+   if (buttonId === 'gridBtnTwo') {
+      gridButtonOne.disabled = false;
+      gridButtonTwo.disabled = true;
+      gridButtonThree.disabled = false;
+      gridButtonFour.disabled = false;
+   }
+   if (buttonId === 'gridBtnThree') {
+      gridButtonOne.disabled = false;
+      gridButtonTwo.disabled = false;
+      gridButtonThree.disabled = true;
+      gridButtonFour.disabled = false;
+   }
+   if (buttonId === 'gridBtnFour') {
+      gridButtonOne.disabled = false;
+      gridButtonTwo.disabled = false;
+      gridButtonThree.disabled = false;
+      gridButtonFour.disabled = true;
+   }
+}
+
 /* ---------------------------------------LOGIC-------------------------------------- */
 // Set default grid size to the DOM
-range.value = addGrid(16); // addGrid func returns the size
+range.value = addGrid(16); // addGrid func returns the size and can be inputed to the range as it's value
 displayGridSize(range.value); // displaying the grid size based on the grid size
 
 // add eventlistener to the GRIDSIZE button
@@ -59,37 +87,25 @@ gridButtons.forEach((button) => {
          removeGrid();
          range.value = addGrid(20);
          // button is disabled after adding the grid for perfomance reason
-         gridButtonOne.disabled = true;
-         gridButtonTwo.disabled = false;
-         gridButtonThree.disabled = false;
-         gridButtonFour.disabled = false;
+         disableButton('gridBtnOne');
          displayGridSize(range.value);
       }
       if (button.id === 'gridBtnTwo') {
          removeGrid();
          range.value = addGrid(40);
-         gridButtonTwo.disabled = true;
-         gridButtonOne.disabled = false;
-         gridButtonThree.disabled = false;
-         gridButtonFour.disabled = false;
+         disableButton('gridBtnTwo');
          displayGridSize(range.value);
       }
       if (button.id === 'gridBtnThree') {
          removeGrid();
          range.value = addGrid(60);
-         gridButtonThree.disabled = true;
-         gridButtonOne.disabled = false;
-         gridButtonTwo.disabled = false;
-         gridButtonFour.disabled = false;
+         disableButton('gridBtnThree');
          displayGridSize(range.value);
       }
       if (button.id === 'gridBtnFour') {
          removeGrid();
          range.value = addGrid(80);
-         gridButtonFour.disabled = true;
-         gridButtonOne.disabled = false;
-         gridButtonTwo.disabled = false;
-         gridButtonThree.disabled = false;
+         disableButton('gridBtnFour');
          displayGridSize(range.value);
       }
    });
