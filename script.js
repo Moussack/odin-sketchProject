@@ -12,14 +12,16 @@ console.dir(gridLine);
 
 // function to add and display grid to the DOM
 function addGrid(size) {
+   // create the grid template
    container.style.cssText = `
       grid-template-columns: repeat(${size}, 1fr); 
       grid-template-rows: repeat(${size}, 1fr);
    `;
-
+   // insert & create the div element to the grid
    for (let i = 0; i < size * size; i++) {
       container.insertAdjacentElement('afterbegin', document.createElement('div'));
    }
+   // add class 'square' to all divs in the grid
    const containerDivs = document.querySelectorAll('.container div');
    containerDivs.forEach((div) => div.classList.add('square'));
 
@@ -47,7 +49,7 @@ function displayGridSize(value) {
 
 /* ---------------------------------------LOGIC-------------------------------------- */
 // Set default grid size to the DOM
-range.value = addGrid(16); // addGrid() func returns the size
+range.value = addGrid(16); // addGrid func returns the size
 displayGridSize(range.value); // displaying the grid size based on the grid size
 
 // add eventlistener to the GRIDSIZE button
@@ -56,6 +58,7 @@ gridButtons.forEach((button) => {
       if (button.id === 'gridBtnOne') {
          removeGrid();
          range.value = addGrid(20);
+         // button is disabled after adding the grid for perfomance reason
          gridButtonOne.disabled = true;
          gridButtonTwo.disabled = false;
          gridButtonThree.disabled = false;
@@ -104,7 +107,7 @@ range.addEventListener('input', () => {
    });
 });
 
-// add eventlistener to the LINE button
+// add eventlistener to the LINE button to toggle the grid line
 gridLine.addEventListener('click', () => {
    container.classList.toggle('line');
 });
