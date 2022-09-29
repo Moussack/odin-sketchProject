@@ -6,8 +6,9 @@ const gridButtonOne = document.querySelector('#gridBtnOne');
 const gridButtonTwo = document.querySelector('#gridBtnTwo');
 const gridButtonThree = document.querySelector('#gridBtnThree');
 const gridButtonFour = document.querySelector('#gridBtnFour');
+const gridLine = document.querySelector('#gridLine');
 
-console.dir(range);
+console.dir(gridLine);
 
 // function to add and display grid to the DOM
 function addGrid(size) {
@@ -41,12 +42,11 @@ function displayGridSize(value) {
 }
 
 /* ---------------------------------------LOGIC-------------------------------------- */
-
 // Set default grid size to the DOM
 range.value = addGrid(16); // addGrid() func returns the size
 displayGridSize(range.value); // displaying the grid size based on the grid size
 
-// add eventlisterner to the button
+// add eventlistener to the GRIDSIZE button
 gridButtons.forEach((button) => {
    button.addEventListener('click', (e) => {
       if (button.id === 'gridBtnOne') {
@@ -88,7 +88,7 @@ gridButtons.forEach((button) => {
    });
 });
 
-// add eventlisterner to the slider grid size
+// add eventlistener to the SLIDER input
 range.addEventListener('input', () => {
    let sizes = maxGridSize(80);
    output.textContent = `${range.value}x${range.value}`;
@@ -98,6 +98,11 @@ range.addEventListener('input', () => {
          addGrid(size);
       }
    });
+});
+
+// add eventlistener to the LINE button
+gridLine.addEventListener('click', () => {
+   container.classList.toggle('line');
 });
 
 // inside event listener
