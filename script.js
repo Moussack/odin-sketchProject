@@ -7,7 +7,7 @@ const gridButtonTwo = document.querySelector('#gridBtnTwo');
 const gridButtonThree = document.querySelector('#gridBtnThree');
 const gridButtonFour = document.querySelector('#gridBtnFour');
 
-console.dir(range.value);
+console.dir(range);
 
 // function to add and display grid to the DOM
 function addGrid(size) {
@@ -29,72 +29,68 @@ function removeGrid() {
 // func to determined the max grid size
 function maxGridSize(theSize) {
    let sizesCollection = [];
-
    for (let i = 1; i <= theSize; i++) {
       sizesCollection.push(i);
    }
-
    return sizesCollection;
 }
 
+// func to display the grid size
+function displayGridSize(value) {
+   output.textContent = `${value}x${value}`;
+}
+
 /* ---------------------------------------LOGIC-------------------------------------- */
+
 // Set default grid size to the DOM
-//addGrid(16);
-range.value = addGrid(16);
+range.value = addGrid(16); // addGrid() func returns the size
+displayGridSize(range.value); // displaying the grid size based on the grid size
 
 // add eventlisterner to the button
 gridButtons.forEach((button) => {
    button.addEventListener('click', (e) => {
       if (button.id === 'gridBtnOne') {
          removeGrid();
-         addGrid(20);
+         range.value = addGrid(20);
          gridButtonOne.disabled = true;
          gridButtonTwo.disabled = false;
          gridButtonThree.disabled = false;
          gridButtonFour.disabled = false;
-         range.value = 20;
+         displayGridSize(range.value);
       }
       if (button.id === 'gridBtnTwo') {
          removeGrid();
-         addGrid(40);
+         range.value = addGrid(40);
          gridButtonTwo.disabled = true;
          gridButtonOne.disabled = false;
          gridButtonThree.disabled = false;
          gridButtonFour.disabled = false;
-         range.value = 40;
+         displayGridSize(range.value);
       }
       if (button.id === 'gridBtnThree') {
          removeGrid();
-         addGrid(60);
+         range.value = addGrid(60);
          gridButtonThree.disabled = true;
          gridButtonOne.disabled = false;
          gridButtonTwo.disabled = false;
          gridButtonFour.disabled = false;
-         range.value = 60;
+         displayGridSize(range.value);
       }
       if (button.id === 'gridBtnFour') {
          removeGrid();
-         addGrid(80);
+         range.value = addGrid(80);
          gridButtonFour.disabled = true;
          gridButtonOne.disabled = false;
          gridButtonTwo.disabled = false;
          gridButtonThree.disabled = false;
-         range.value = 80;
+         displayGridSize(range.value);
       }
    });
 });
 
-/* buttonOne.addEventListener('click', (e) => {
-   removeGrid();
-   addGrid(20);
-}); */
-
-/* console.dir(buttonOne);
-console.log(buttonOne.className); */
-
 // add eventlisterner to the slider grid size
-/* range.addEventListener('input', () => {
-   let sizes = maxGridSize(20);
+range.addEventListener('input', () => {
+   let sizes = maxGridSize(80);
    output.textContent = `${range.value}x${range.value}`;
    sizes.forEach((size) => {
       if (range.value == size) {
@@ -102,7 +98,7 @@ console.log(buttonOne.className); */
          addGrid(size);
       }
    });
-}); */
+});
 
 // inside event listener
 /*  if (range.value == 1) {
