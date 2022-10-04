@@ -16,6 +16,10 @@
    gap: 1px;
 }
 
+.container div.red {
+   background-color: red;
+}
+
 /* .container.three {
    grid-template-columns: repeat(3, 1fr);
    grid-template-rows: repeat(3, 1fr);

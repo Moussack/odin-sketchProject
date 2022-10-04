@@ -9,8 +9,8 @@ const gridButtonThree = document.querySelector('#gridBtnThree');
 const gridButtonFour = document.querySelector('#gridBtnFour');
 const gridLine = document.querySelector('#gridLine');
 
-console.dir(gridLine);
-console.log(gridLine);
+//console.dir(gridLine);
+//console.log(gridLine);
 
 /* ---------------------------------------FUNCTIONS-------------------------------------- */
 // func to add and display grid to the DOM
@@ -150,6 +150,14 @@ range.addEventListener('input', () => {
 // add eventlistener to the LINE button to toggle the grid line
 gridLine.addEventListener('click', () => {
    container.classList.toggle('line');
+});
+
+// hover on container
+container.addEventListener('mouseover', (e) => {
+   //e.target.classList.add('red');
+   if (e.target.className === 'square') {
+      e.target.style.backgroundColor = 'red';
+   }
 });
 
 // inside event listener
