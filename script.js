@@ -153,7 +153,7 @@ gridLine.addEventListener('click', () => {
    container.classList.toggle('line');
 });
 
-// hover on the container
+// Hover on the container logic
 container.addEventListener('mouseover', (e) => {
    //e.target.classList.add('red');
    if (e.target.className === 'square') {
@@ -161,7 +161,7 @@ container.addEventListener('mouseover', (e) => {
    }
 });
 
-// create reset color button
+// Reset color logic
 gridResetBtn.addEventListener('click', (e) => {
    Array.from(container.children).forEach((child) => {
       child.style.backgroundColor = '';
