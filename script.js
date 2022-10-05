@@ -80,10 +80,26 @@ function disableButton(buttonId) {
    }
 }
 
+// Color Picker Instance
+let pickers = new ColorPicker({
+   dom: document.getElementById('picker1'),
+   value: '#0F0',
+});
+
+// func to return the color value from the color picker
+function colorValue(e) {
+   let color = pickers.getValue();
+   console.log(color);
+   return color;
+}
+
 /* ---------------------------------------APP LOGIC-------------------------------------- */
 // Set & display default grid size to the DOM
 range.value = addGrid(16); // addGrid func returns the size and can be inputed to the range as it's value
 displayGridSize(range.value); // displaying the grid size based on the grid size
+
+// add eventlistener to the color picker
+pickers.addEventListener('change', colorValue);
 
 // add eventlistener to the GRIDSIZE button
 gridButtons.forEach((button) => {
@@ -157,7 +173,7 @@ gridLine.addEventListener('click', () => {
 container.addEventListener('mouseover', (e) => {
    //e.target.classList.add('red');
    if (e.target.className === 'square') {
-      e.target.style.backgroundColor = 'red';
+      e.target.style.backgroundColor = colorValue();
    }
 });
 
