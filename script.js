@@ -49,7 +49,7 @@ function maxGridSize(theSize) {
 
 // func to display the grid size
 function displayGridSize(value) {
-   output.textContent = `${value}x${value}`;
+   output.textContent = `${value}x${value} GRID`;
 }
 
 // func to disable the button
@@ -135,7 +135,7 @@ gridButtons.forEach((button) => {
 // add eventlistener to the SLIDER input
 range.addEventListener('input', () => {
    let sizes = maxGridSize(80);
-   output.textContent = `${range.value}x${range.value}`;
+   output.textContent = `${range.value}x${range.value} GRID`;
    sizes.forEach((size) => {
       if (range.value == size) {
          removeGrid();
