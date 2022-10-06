@@ -133,8 +133,8 @@ gridButtons.forEach((button) => {
 });
 
 // add eventlistener to the SLIDER input
+let sizes = maxGridSize(80);
 range.addEventListener('input', () => {
-   let sizes = maxGridSize(80);
    output.textContent = `${range.value}x${range.value} GRID`;
    sizes.forEach((size) => {
       if (range.value == size) {
