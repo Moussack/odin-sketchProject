@@ -82,9 +82,10 @@ function disableButton(buttonId) {
 }
 
 // Color Picker Instance
+const defaultColorVal = '#0F0';
 let pickers = new ColorPicker({
    dom: document.getElementById('picker1'),
-   value: '#0F0',
+   value: defaultColorVal,
 });
 
 // func to return the color value from the color picker
@@ -106,6 +107,7 @@ function defaultGrid() {
    addLine();
    range.value = addGrid(16); // addGrid func returns the size and can be inputed to the range as it's value
    displayGridSize(range.value); // displaying the grid size based on the grid size
+   pickers.value = defaultColorVal;
    gridButtonOne.disabled = false;
    gridButtonTwo.disabled = false;
    gridButtonThree.disabled = false;
