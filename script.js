@@ -113,7 +113,6 @@ function defaultGrid() {
    gridButtonThree.disabled = false;
    gridButtonFour.disabled = false;
    gridClearBtn.disabled = true;
-   gridDefaultBtn.disabled = true;
 }
 
 /* ---------------------------------------APP LOGIC-------------------------------------- */
@@ -202,7 +201,6 @@ container.addEventListener('mouseover', (e) => {
    if (e.target.className === 'square') {
       e.target.style.backgroundColor = colorValue();
       gridClearBtn.disabled = false;
-      gridDefaultBtn.disabled = false;
    }
 });
 
