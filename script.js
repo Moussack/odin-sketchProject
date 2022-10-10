@@ -11,8 +11,7 @@ const gridLine = document.querySelector('#gridLine');
 const gridClearBtn = document.querySelector('#gridClear');
 const gridDefaultBtn = document.querySelector('#gridDefault');
 
-console.dir(container.className);
-
+//console.dir(container.className);
 //console.log(gridDefaultBtn);
 
 /* ---------------------------------------FUNCTIONS-------------------------------------- */
@@ -111,6 +110,8 @@ function defaultGrid() {
    gridButtonTwo.disabled = false;
    gridButtonThree.disabled = false;
    gridButtonFour.disabled = false;
+   gridClearBtn.disabled = true;
+   gridDefaultBtn.disabled = true;
 }
 
 /* ---------------------------------------APP LOGIC-------------------------------------- */
@@ -198,6 +199,8 @@ container.addEventListener('mouseover', (e) => {
    //e.target.classList.add('red');
    if (e.target.className === 'square') {
       e.target.style.backgroundColor = colorValue();
+      gridClearBtn.disabled = false;
+      gridDefaultBtn.disabled = false;
    }
 });
 
