@@ -8,10 +8,12 @@ const gridButtonTwo = document.querySelector('#gridBtnTwo');
 const gridButtonThree = document.querySelector('#gridBtnThree');
 const gridButtonFour = document.querySelector('#gridBtnFour');
 const gridLine = document.querySelector('#gridLine');
-const gridResetBtn = document.querySelector('#gridReset');
+const gridClearBtn = document.querySelector('#gridClear');
+const gridDefaultBtn = document.querySelector('#gridDefault');
 
-//console.dir(gridLine);
-//console.log(gridResetBtn);
+console.dir(container.className);
+
+//console.log(gridDefaultBtn);
 
 /* ---------------------------------------FUNCTIONS-------------------------------------- */
 // func to add and display grid to the DOM
@@ -38,7 +40,7 @@ function removeGrid() {
    Array.from(container.children).forEach((child) => child.remove());
 }
 
-// func to determined the max grid size
+// func to determined the max grid size for the input slider
 function maxGridSize(theSize) {
    let sizesCollection = [];
    for (let i = 1; i <= theSize; i++) {
@@ -89,14 +91,30 @@ let pickers = new ColorPicker({
 // func to return the color value from the color picker
 function colorValue(e) {
    let color = pickers.getValue();
-   console.log(color);
+   //console.log(color);
    return color;
+}
+
+// default grid func, default grid is 16x16
+function defaultGrid() {
+   if (container.className === 'container') {
+      //add the line if the container doesnt has line class
+      container.classList.add('line');
+   }
+
+   range.value = addGrid(16);
+   displayGridSize(range.value);
+   gridButtonOne.disabled = false;
+   gridButtonTwo.disabled = false;
+   gridButtonThree.disabled = false;
+   gridButtonFour.disabled = false;
 }
 
 /* ---------------------------------------APP LOGIC-------------------------------------- */
 // Set & display default grid size to the DOM
-range.value = addGrid(16); // addGrid func returns the size and can be inputed to the range as it's value
-displayGridSize(range.value); // displaying the grid size based on the grid size
+//range.value = addGrid(16); // addGrid func returns the size and can be inputed to the range as it's value
+//displayGridSize(range.value); // displaying the grid size based on the grid size
+defaultGrid(); // default grid is 16x16
 
 // add eventlistener to the color picker
 pickers.addEventListener('change', colorValue);
@@ -178,10 +196,16 @@ container.addEventListener('mouseover', (e) => {
 });
 
 // Reset color logic
-gridResetBtn.addEventListener('click', (e) => {
+gridClearBtn.addEventListener('click', (e) => {
    Array.from(container.children).forEach((child) => {
       child.style.backgroundColor = '';
    });
+});
+
+// Default Button Logic
+gridDefaultBtn.addEventListener('click', (e) => {
+   removeGrid();
+   defaultGrid();
 });
 
 // inside event listener
