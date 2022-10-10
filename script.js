@@ -95,15 +95,18 @@ function colorValue(e) {
    return color;
 }
 
-// default grid func, default grid is 16x16
-function defaultGrid() {
+// func to add line class if the container doesnt have it
+function addLine() {
    if (container.className === 'container') {
-      //add the line if the container doesnt has line class
       container.classList.add('line');
    }
+}
 
-   range.value = addGrid(16);
-   displayGridSize(range.value);
+// default grid func, default grid is 16x16
+function defaultGrid() {
+   addLine();
+   range.value = addGrid(16); // addGrid func returns the size and can be inputed to the range as it's value
+   displayGridSize(range.value); // displaying the grid size based on the grid size
    gridButtonOne.disabled = false;
    gridButtonTwo.disabled = false;
    gridButtonThree.disabled = false;
@@ -112,8 +115,6 @@ function defaultGrid() {
 
 /* ---------------------------------------APP LOGIC-------------------------------------- */
 // Set & display default grid size to the DOM
-//range.value = addGrid(16); // addGrid func returns the size and can be inputed to the range as it's value
-//displayGridSize(range.value); // displaying the grid size based on the grid size
 defaultGrid(); // default grid is 16x16
 
 // add eventlistener to the color picker
@@ -124,6 +125,7 @@ gridButtons.forEach((button) => {
    button.addEventListener('click', (e) => {
       if (button.id === 'gridBtnOne') {
          removeGrid();
+         addLine();
          range.value = addGrid(20);
          // button is disabled after adding the grid for perfomance reason
          disableButton('gridBtnOne');
@@ -131,18 +133,21 @@ gridButtons.forEach((button) => {
       }
       if (button.id === 'gridBtnTwo') {
          removeGrid();
+         addLine();
          range.value = addGrid(40);
          disableButton('gridBtnTwo');
          displayGridSize(range.value);
       }
       if (button.id === 'gridBtnThree') {
          removeGrid();
+         addLine();
          range.value = addGrid(60);
          disableButton('gridBtnThree');
          displayGridSize(range.value);
       }
       if (button.id === 'gridBtnFour') {
          removeGrid();
+         addLine();
          range.value = addGrid(80);
          disableButton('gridBtnFour');
          displayGridSize(range.value);
@@ -157,6 +162,7 @@ range.addEventListener('input', () => {
    sizes.forEach((size) => {
       if (range.value == size) {
          removeGrid();
+         addLine();
          addGrid(size);
       }
    });
@@ -195,7 +201,7 @@ container.addEventListener('mouseover', (e) => {
    }
 });
 
-// Reset color logic
+// CLEAR button logic
 gridClearBtn.addEventListener('click', (e) => {
    Array.from(container.children).forEach((child) => {
       child.style.backgroundColor = '';
