@@ -132,6 +132,7 @@ gridButtons.forEach((button) => {
          // button is disabled after adding the grid for perfomance reason
          disableButton('gridBtnOne');
          displayGridSize(range.value);
+         gridClearBtn.disabled = true;
       }
       if (button.id === 'gridBtnTwo') {
          removeGrid();
@@ -139,6 +140,7 @@ gridButtons.forEach((button) => {
          range.value = addGrid(40);
          disableButton('gridBtnTwo');
          displayGridSize(range.value);
+         gridClearBtn.disabled = true;
       }
       if (button.id === 'gridBtnThree') {
          removeGrid();
@@ -146,6 +148,7 @@ gridButtons.forEach((button) => {
          range.value = addGrid(60);
          disableButton('gridBtnThree');
          displayGridSize(range.value);
+         gridClearBtn.disabled = true;
       }
       if (button.id === 'gridBtnFour') {
          removeGrid();
@@ -153,6 +156,7 @@ gridButtons.forEach((button) => {
          range.value = addGrid(80);
          disableButton('gridBtnFour');
          displayGridSize(range.value);
+         gridClearBtn.disabled = true;
       }
    });
 });
@@ -209,6 +213,7 @@ gridClearBtn.addEventListener('click', (e) => {
    Array.from(container.children).forEach((child) => {
       child.style.backgroundColor = '';
    });
+   gridClearBtn.disabled = true;
 });
 
 // Default Button Logic
