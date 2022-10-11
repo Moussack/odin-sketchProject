@@ -1,3 +1,14 @@
+body {
+   font-family: 'Nanum Pen Script', cursive;
+   background-color: azure;
+   box-sizing: border-box;
+}
+
+button {
+   font-family: 'Nanum Pen Script', cursive;
+   font-size: 22px;
+}
+
 .container {
    display: grid;
    width: 500px;
@@ -31,9 +42,14 @@
 .second {
    display: flex;
    flex-direction: column;
-   gap: 18px;
-   justify-content: center;
+   gap: 13px;
+   /*justify-content: center; */
+   margin-top: 35px;
 }
+
+/* .third {
+   margin-top: 35px;
+} */
 
 button {
    width: 70px;
@@ -48,6 +64,10 @@ button {
    width: 100px;
 }
 
+.output {
+   font-size: 25px;
+}
+
 h1 {
    margin: 0;
    margin-bottom: 10px;
@@ -57,6 +77,11 @@ h1 {
 #picker1 {
    width: 128px;
    height: 128px;
+}
+
+.color-picker {
+   background-color: azure;
+   /* margin-top: 34px; */
 }
 
 /* .container.three {
