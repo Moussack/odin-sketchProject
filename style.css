@@ -1,12 +1,16 @@
 body {
    font-family: 'Nanum Pen Script', cursive;
-   background-color: azure;
+   background-color: whitesmoke;
    box-sizing: border-box;
 }
 
 button {
    font-family: 'Nanum Pen Script', cursive;
    font-size: 22px;
+}
+
+h1 {
+   font-size: 45px;
 }
 
 .container {
@@ -44,7 +48,7 @@ button {
    flex-direction: column;
    gap: 13px;
    /*justify-content: center; */
-   margin-top: 35px;
+   margin-top: 50px;
 }
 
 /* .third {
@@ -80,7 +84,7 @@ h1 {
 }
 
 .color-picker {
-   background-color: azure;
+   background-color: inherit;
    /* margin-top: 34px; */
 }
 
