@@ -194,7 +194,7 @@ range.addEventListener('input', () => {
    }
 });
 
-// add eventlistener to the LINE button to toggle the grid line
+// add eventlistener to the LINE button to toggle the grid line s
 gridLine.addEventListener('click', () => {
    container.classList.toggle('line');
 });
