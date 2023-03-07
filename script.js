@@ -17,7 +17,7 @@ const gridDefaultBtn = document.querySelector('#gridDefault');
 /* ---------------------------------------FUNCTIONS-------------------------------------- */
 // func to add and display grid to the DOM
 function addGrid(size) {
-   // create the grid template
+   // create the grid template ZZZ
    container.style.cssText = `
       grid-template-columns: repeat(${size}, 1fr); 
       grid-template-rows: repeat(${size}, 1fr);
